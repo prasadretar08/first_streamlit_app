@@ -1,4 +1,4 @@
-xecuteimport streamlit
+import streamlit
 import snowflake.connector
 import pandas
 import snowflake.connector 
