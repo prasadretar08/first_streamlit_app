@@ -35,8 +35,7 @@ my_cur = my_cnx.cursor()
 # Function to insert a new fruit into the database
 def add_fruit_to_list(fruit_name):
     my_cur.execute("INSERT INTO fruit_load_list (fruit_name) VALUES (%s)", (fruit_name,))
-    my_cnx.commit()
-    
+    my_cnx.commit()   
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
