@@ -61,7 +61,7 @@ streamlit.success(f"Thanks for adding {add_new_fruit}")
 
 streamlit.header("The fruit load list contains:")
 #Snowflake-related functions
-def get_fruit_load_list()
+def get_fruit_load_list():
     With my_cnx.excecute("Select * from fruit_load_list")
     return my_cur.fetchall()
 #Add a button to load the fruit
