@@ -46,6 +46,7 @@ import pandas
 import snowflake.connector 
 from urllib.error import URLError 
 
+
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # Function to insert a new fruit into the database
@@ -58,11 +59,11 @@ my_data_rows = my_cur.fetchall()
 add_new_fruit = streamlit.text_input("What fruit would you like to add?")
 add_fruit_to_list(add_new_fruit)
 streamlit.success(f"Thanks for adding {add_new_fruit}")
-
 streamlit.header("The fruit load list contains:")
 #Snowflake-related functions
 def get_fruit_load_list():
-    With my_cnx.excecute("Select * from fruit_load_list")
+    With my_cnx.Cursor() as my_cur
+    my_cur.excecute("Select * from fruit_load_list")
     return my_cur.fetchall()
 #Add a button to load the fruit
 if streamlit.button('Get Fruit Load List'):
