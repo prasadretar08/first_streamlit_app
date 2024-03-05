@@ -39,7 +39,7 @@ try:
 except URLError as e:
     streamlit.error() 
     
-streamlit.stop()
+#streamlit.stop()
 import streamlit
 import snowflake.connector
 import pandas
@@ -47,19 +47,7 @@ import snowflake.connector
 from urllib.error import URLError 
 
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-# Function to insert a new fruit into the database
-def add_fruit_to_list(fruit_name):
-    my_cur.execute("INSERT INTO fruit_load_list (fruit_name) VALUES (%s)", (fruit_name,))
-    my_cnx.commit()   
-my_cur.execute("SELECT * from fruit_load_list")
-my_data_rows = my_cur.fetchall()
-# Allow the user to add a new fruit
-add_new_fruit = streamlit.text_input("What fruit would you like to add?")
-add_fruit_to_list(add_new_fruit)
-streamlit.success(f"Thanks for adding {add_new_fruit}")
-streamlit.header("The fruit load list contains:")
+
 #Snowflake-related functions
 def get_fruit_load_list():
     With my_cnx.Cursor() as my_cur
